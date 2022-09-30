@@ -1,0 +1,112 @@
+body{
+    font-size: 1em;
+}
+/* Partie pour header, footer et Accueil */
+div.resp-logo img, div.resp-logo a img{
+    width: 75px;
+}
+.per50{
+    display: none;
+}
+.per25{
+    width: 50%;
+}
+a.button{
+    background-color: #ffddb8;
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #364D47;
+    text-decoration: none;
+    font-size: 0.8em;
+    color:#364D47;
+}
+#formconnect{
+    width: 100%;
+    height: 100vh;
+}
+#form{
+    font-size: 1.5em;
+    width: 100%;
+    height: 30%;
+    padding: 10px;
+}
+ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+ul li{
+    padding-top: 10px;
+}
+/* Partie administration */
+nav#navadm{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 120px;
+}
+p.btn-nav{
+    width: calc(100%);
+    height: 20px;
+    text-align: center;
+    color: #364D47;
+    font-weight: bold;
+    background-color: #ffddb8;
+    margin: 0 5px;
+    padding: 5px 0;
+    box-shadow: 2px 2px 2px #364D47;
+    border-radius: 0px;
+}
+div.tier-2{
+    display: none;
+}
+div.tier-1{
+    width: 100%;
+}
+.table{
+    font-size: 1.2em;
+}
+button.basicbutton, div.basicbutton{
+    font-size: 0.8em;
+}
+#delQuest{
+    flex-direction: column;
+}
+#editQuest{
+    flex-direction: column;
+}
+div.affichQuest{
+    width: 90%;
+    height: 25%;
+    margin: auto;
+    margin-top: 10px;
+}
+div.admin-tool{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+}
+form#formQuest{
+    width: 95%;
+    height: calc(100vh - (2*20px));
+    border-radius: 10px;
+    border: 3px solid #65837b;
+    display: flex;
+    flex-direction: row;
+}
+/* fin administration */
+/*mentions*/
+.MentionsSmall{
+    display: block;
+}
+.MentionsSmall2{
+    border-top: #ffddb8 solid 2px;
+    display: block;
+}
+/*fin mentions*/
+.bloc1{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
