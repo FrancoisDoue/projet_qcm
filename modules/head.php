@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,7 +21,7 @@
     <?php
         $currentPage = explode('/',$_SERVER['PHP_SELF']);
         $currentPage = end($currentPage);
-        if(!($currentPage == 'accueil.php' OR $currentPage == 'index.php')){
+        if($currentPage != 'index.php'){
     ?>
             <div class="containLogo">
                 <a href="index">
@@ -41,18 +44,21 @@
                         $datas = connectDb($requete,true);
                         foreach($datas as $dat){
                             if($_POST['utilisateur'] == $dat['login_admin']
-                            && $_POST['pass'] == $dat['psw_admin']){
+                            && password_verify($_POST['pass'],$dat['psw_admin'])){
+                                $_SESSION['nom'] = $_dat['login_admin'];
+                                $_SESSION['psw'] = $_POST['pass'];
+                                $_SESSION['hash'] = $dat['psw_admin'];
                                 header('Location: adminAccueil');
                             }
                         }
                     }
-                }
-
-            ?>
+                }else if(explode('?', $currentPage)[0] == 'adminAccueil.php'){ ?>
+                    <a class="button" id="deconnexion" href="deconnexion">DECONNEXION</a>
+                <?php } ?>
             </div>
 
         </header>
-        <?php if($currentPage == 'accueil.php' OR $currentPage == 'index.php'){?>
+        <?php if($currentPage == 'index.php'){?>
         <div id="formconnect">
             <form id="form" action="" method="post">
                 <p>Utilisateur</p>
@@ -62,9 +68,9 @@
                 <div class="center">
                     <button class="btnGo" id="retour" type="bouton">Retour à l'accueil</button>
                     <button class="btnRetour" type="submit">Go !</button>
-        </div>
+                </div>
             </form>
-            </div>
-        <?php }?>
+        </div>
+        <?php } ?>
+            
         <main>
-

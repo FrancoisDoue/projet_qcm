@@ -4,7 +4,8 @@ $javalink = 'script/scriptadm.js';
 require_once('modules/head.php');
 require_once('modules/navadmin.php');
 require_once('modules/config.php');
-require_once('modules/fonct.php')
+require_once('modules/fonct.php');
+if(password_verify($_SESSION['psw'],$_SESSION['hash'])){
 ?>
 <h2 id="titreAdmin">Administration</h2>
 
@@ -404,5 +405,8 @@ if(isset($_GET['toolId'])){
             break;
     }
     
+}
+}else{
+    header('Location: index');
 }
 ?>
