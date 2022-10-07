@@ -1,7 +1,6 @@
-let winHref = window.location.href.split('/')
-winHref = winHref.splice(winHref.length-1,1,'index')
+let winHref = window.location.href
+winHref = winHref.substring(winHref.lastIndexOf('/'),0)
+console.log(winHref)
 setTimeout(function(){
-    window.location.href = 'http://localhost/projet_perso_qcm/index'
+    window.location.href = winHref+'/index'
 } , 5000)
-// window.addEventListener('load',function(){
-// })

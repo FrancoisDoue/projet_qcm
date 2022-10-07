@@ -6,7 +6,7 @@ require_once ("modules/fonct.php");
 <div class="center-container">
     <div class="text-center">
         <H1 class="text-center" id="inscription">Inscription</h1>
-        <form action="#" method="post">
+        <form id='inscri1' action="#" method="post">
             <label class="label-cnx">NOM</label>
             <input class="input-cnx" name="CnxNom" type="text" placeholder="..."
                 value="<?php if (isset($_POST["CnxNom"])) echo $_POST["CnxNom"];?>">

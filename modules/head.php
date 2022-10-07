@@ -12,6 +12,7 @@ session_start();
 
     <!-- <script src="script/slider.js"></script> -->
     <script defer src="script/connexion.js"></script>
+    <!-- <script defer src="script/deconnexion.js"></script> -->
     <script defer src="<?= $javalink ?>"></script>
     <title><?= $title ?></title>
 </head>
@@ -36,7 +37,7 @@ session_start();
             </div>
     <?php } ?>
             <div class="center-vert">
-                <?php if($currentPage == 'accueil.php' OR $currentPage == 'index.php'){?>
+                <?php if(!(isset($_SESSION['hash'])) && $currentPage == 'index.php' ){?>
                     <a class="button" id="connexion" href="#">CONNEXION</a>
                 <?php if(isset($_POST) && count($_POST)>0){
                         include_once('modules/fonct.php');
@@ -52,9 +53,15 @@ session_start();
                             }
                         }
                     }
-                }else if(explode('?', $currentPage)[0] == 'adminAccueil.php'){ ?>
+                }else if(isset($_SESSION['hash']) && password_verify($_SESSION['psw'],$_SESSION['hash']) && !($currentPage == 'deconnexion')){?>
                     <a class="button" id="deconnexion" href="deconnexion">DECONNEXION</a>
-                <?php } ?>
+                <?php 
+                    if($currentPage != 'adminAccueil'){ ?>
+                        <a class="button" id="btnGoAdm" href="adminAccueil">Administration</a>
+                        <?php
+                    }
+                } 
+            ?>
             </div>
 
         </header>
